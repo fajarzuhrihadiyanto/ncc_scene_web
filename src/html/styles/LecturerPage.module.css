@@ -1,0 +1,65 @@
+.html {
+    width: 1200px;
+    height: 750px;
+    opacity: 0;
+    background-color: white;
+    color: black;
+    font-size: 1.25rem;
+    overflow-y: auto
+}
+
+.container {
+    box-sizing: border-box;
+    padding: 64px;
+    display: flex;
+    gap: 32px;
+}
+
+.image_container {
+    
+}
+
+.data_container {
+    flex-grow: 2;
+}
+
+.title {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.image {
+    margin: 32px 0;
+    width: 300px;
+}
+
+.publication {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.publication a, .button {
+    display: block;
+    padding: 16px;
+    border: 1px solid black;
+    color: black;
+    text-decoration: none;
+}
+
+.publication a:hover, .button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.button {
+    background-color: white;
+    font-size: 1.25rem;
+}
+
+.button_container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 64px 64px;
+}

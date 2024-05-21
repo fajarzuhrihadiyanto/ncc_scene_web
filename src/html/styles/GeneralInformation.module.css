@@ -1,0 +1,23 @@
+.html {
+    width: 960px;
+    height: 480px;
+    background-color: white;
+    color: black;
+    transition: opacity .2s;
+    opacity: .9
+}
+
+.container {
+    padding: 32px
+}
+
+.title {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.description {
+    font-size: 1.75rem;
+    text-align: justify;
+    line-height: 2;
+}

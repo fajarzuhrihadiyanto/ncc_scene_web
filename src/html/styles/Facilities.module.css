@@ -1,0 +1,22 @@
+.html {
+    width: 920px;
+    height: 490px;
+    transition: opacity .3s;
+    background-color: white;
+    opacity: 1;
+    overflow-y: auto;
+}
+
+.container {
+    padding: 32px;
+}
+
+.list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 2.25rem;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    gap: 16px
+}
