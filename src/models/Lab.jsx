@@ -17,7 +17,7 @@ import { addVector3 } from '../utils'
 import { ControlsContext } from '../context/ControlsContext'
 
 const Lab = (props) => {
-  const { nodes, materials } = useGLTF('/models/lab scene.glb')
+  const { nodes, materials } = useGLTF(process.env.REACT_APP_MODEL_URL)
 
   // get the state and setter from the store
   const focusTarget = useMainStore.useFocusTarget()
@@ -61,6 +61,6 @@ const Lab = (props) => {
   )
 }
 
-useGLTF.preload('/models/lab scene.glb')
+useGLTF.preload(process.env.REACT_APP_MODEL_URL)
 
 export default Lab
