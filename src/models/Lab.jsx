@@ -13,7 +13,7 @@ import HologramArea from './hologram area/HologramArea'
 import LogoArea from './logo area/LogoArea'
 import WorkingArea from './working area/WorkingArea'
 import useMainStore from '../store/useMainStore'
-import { addVector3 } from '../utils'
+import { addVector3, useResponsiveScreen } from '../utils'
 import { ControlsContext } from '../context/ControlsContext'
 
 const Lab = (props) => {
@@ -23,6 +23,7 @@ const Lab = (props) => {
   const focusTarget = useMainStore.useFocusTarget()
   const cameraPosition = useMainStore.useCameraPosition()
   const controlsTargetOffset = useMainStore.useControlsTargetOffset()
+  const {isMobile} = useResponsiveScreen()
 
   const controlsTarget = addVector3(cameraPosition, controlsTargetOffset)
 
@@ -43,8 +44,11 @@ const Lab = (props) => {
         // enable control rotation
         controls.current.enableRotate = true
 
+        let camPos = [...cameraPosition]
+        if (isMobile) camPos[0] *= 7/4
+        
         // animate back camera to original position 
-        gsap.to(camera.position, {duration: 1, x: cameraPosition[0], y: cameraPosition[1], z: cameraPosition[2]})
+        gsap.to(camera.position, {duration: 1, x: camPos[0], y: camPos[1], z: camPos[2]})
         gsap.to(controls.current.target, {duration: 1, x: controlsTarget[0], y: controlsTarget[1], z: controlsTarget[2]})
       }
     }

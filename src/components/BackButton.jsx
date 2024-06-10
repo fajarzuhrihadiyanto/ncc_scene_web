@@ -10,15 +10,10 @@ const BackButton = () => {
     const setSubjectData = useMainStore.useSetSubjectData()
     
     const back = () => {
-        let controlsTargetOffset = [1.5,0,0], cameraPosition = [-2,1.5,-0.2]
-        if ([FOCUS_FACILITIES].includes(focusTarget)) {
+        let controlsTargetOffset = [1.5,0,0], cameraPosition = [-2,1.5,-0.15]
+        if ([FOCUS_FACILITIES, FOCUS_LECTURER].includes(focusTarget)) {
             controlsTargetOffset = [-1.5,0,0]
-            cameraPosition = [1, 1.5, -0.2]
-        }
-
-        if (focusTarget === FOCUS_LECTURER) {
-            cameraPosition = [-0.5,1.5,-1.7]
-            controlsTargetOffset = [0,0,1.5]
+            cameraPosition = [1, 1.5, -0.15]
         }
 
         setFocusTarget(null)

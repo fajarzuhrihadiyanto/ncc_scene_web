@@ -6,7 +6,7 @@ const useMainStoreBase = create(
     focusTarget: null,
     setFocusTarget: focusTarget => set({ focusTarget }),
 
-    cameraPosition: [-2,1.5,-0.2],
+    cameraPosition: [-2,1.5,-.15],
     setCameraPosition: cameraPosition => set({ cameraPosition }),
 
     controlsTargetOffset: [1.5,0,0],

@@ -10,6 +10,7 @@ import ServerDoor from "./ServerDoor"
 import useMainStore from "../../store/useMainStore"
 import Tooltip from "../../components/Tootlip"
 import { FOCUS_FACILITIES } from "../../constants"
+import { useResponsiveScreen } from "../../utils"
 
 const ServerArea = ({ nodes, materials }) => {
 
@@ -18,6 +19,7 @@ const ServerArea = ({ nodes, materials }) => {
     const setFocusTarget = useMainStore.useSetFocusTarget()
     const setCameraPosition = useMainStore.useSetCameraPosition()
     const setControlsTargetOffset = useMainStore.useSetControlsTargetOffset()
+    const {isMobile} = useResponsiveScreen()
 
     const ref = React.useRef()
     const leftDoor = React.useRef()
@@ -34,9 +36,10 @@ const ServerArea = ({ nodes, materials }) => {
     }, [focusTarget])
 
     const onClick = React.useCallback(() => {
+        const cameraPosition = isMobile ? [-3.5, 1.2, 0] : [-3.75, 1.2, 0]
         setIsHovered(false)
         setFocusTarget(FOCUS_FACILITIES)
-        setCameraPosition([-3.75, 1.2, 0])
+        setCameraPosition(cameraPosition)
         setControlsTargetOffset([-.01,0,0])
     }, [])
 

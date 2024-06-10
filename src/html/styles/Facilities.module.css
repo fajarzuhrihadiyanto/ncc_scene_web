@@ -11,6 +11,12 @@
     padding: 32px;
 }
 
+.title {
+    font-size: 3rem;
+    margin: 0;
+    margin-bottom: 16px;
+}
+
 .list {
     margin: 0;
     padding-left: 18px;

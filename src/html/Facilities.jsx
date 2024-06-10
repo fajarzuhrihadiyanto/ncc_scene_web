@@ -36,6 +36,7 @@ const Facilities = ({ ...props }) => {
                 }}
             >
                 <div className={styles.container}>
+                    <h1 className={styles.title}>Fasilitas</h1>
                     <ul className={styles.list}>
                         <li>Processor Intel Core i3 Gen-3, i5 Gen-8, sampai Intel® Xeon® E5-2640 dengan RAM 4GB-16GB.</li>
                         <li>Untuk HDD sebagian besar minimal 1TB.</li>

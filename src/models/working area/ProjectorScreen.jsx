@@ -6,6 +6,7 @@ import { FOCUS_LECTURER } from "../../constants"
 import useMainStore from "../../store/useMainStore"
 import LecturerPage from "../../html/LecturerPage"
 import Tooltip from "../../components/Tootlip"
+import { useResponsiveScreen } from "../../utils"
 
 const ProjectorScreen = ({ nodes, materials }) => {
 
@@ -14,6 +15,7 @@ const ProjectorScreen = ({ nodes, materials }) => {
     const setFocusTarget = useMainStore.useSetFocusTarget()
     const setCameraPosition = useMainStore.useSetCameraPosition()
     const setControlsTargetOffset = useMainStore.useSetControlsTargetOffset()
+    const {isMobile} = useResponsiveScreen()
 
     const [isHovered, setIsHovered] = React.useState(false)
 
@@ -26,9 +28,10 @@ const ProjectorScreen = ({ nodes, materials }) => {
     }, [focusTarget])
 
     const onClick = React.useCallback(() => {
+        const cameraPosition = isMobile ? [2.85,1.5,0] : [2.9,1.5,1.5]
         setIsHovered(false)
         setFocusTarget(FOCUS_LECTURER)
-        setCameraPosition([2.9,1.5,1.5])
+        setCameraPosition(cameraPosition)
         setControlsTargetOffset([0,0,0.01])
     }, [])
         

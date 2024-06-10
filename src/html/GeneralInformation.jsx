@@ -6,6 +6,7 @@ import styles from './styles/GeneralInformation.module.css'
 import buttonStyles from './styles/Buttons.module.css'
 import useMainStore from "../store/useMainStore"
 import { FOCUS_BOOKS, FOCUS_COMMUNITY_SERVICE, FOCUS_RESEARCH, FOCUS_SUBJECT } from "../constants"
+import { useResponsiveScreen } from "../utils"
 
 const GeneralInformation = () => {
 
@@ -15,6 +16,7 @@ const GeneralInformation = () => {
     const setControlsTargetOffset = useMainStore.useSetControlsTargetOffset()
     const isDeskFocused = useMainStore.useIsDeskFocused()
     const setIsDeskFocused = useMainStore.useSetIsDeskFocused()
+    const {isMobile} = useResponsiveScreen()
 
     const ref = React.useRef()
     const buttonRef = React.useRef()
@@ -53,9 +55,10 @@ const GeneralInformation = () => {
     }, [])
 
     const onButtonClick = React.useCallback(focusTarget => {
+        const cameraPosition = isMobile ? [1.25,1.3,-1.5] : [2,1.3,-1.5]
         setIsDeskFocused(false)
         setFocusTarget(focusTarget)
-        setCameraPosition([2,1.3,-1.5])
+        setCameraPosition(cameraPosition)
         // setControlsTargetOffset([.01,0,0])
 
         setControlsTargetOffset([1,0,0])
