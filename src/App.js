@@ -8,6 +8,7 @@ import Lab from "./models/Lab";
 import { addVector3 } from "./utils";
 import ControlContainer from "./context/ControlsContext";
 import BackButton from "./components/BackButton";
+import DataDownloader from "./components/DataDownloader";
 
 function App() {
   const cameraPosition = [-2,1.5,-0.2]
@@ -18,6 +19,7 @@ function App() {
       {/* IMPORTANT : DO NOT SET FRAMELOOP TO DEMAND, SOMETIME IT WILL STOP THE ANIMATION RENDERING */}
       <Canvas camera={{position: cameraPosition}}>
         <Suspense fallback={<Loader />}>
+          <DataDownloader />
           <Environment background files={'./cannon_4k.exr'}/>
           <ambientLight intensity={2} />
           <ControlContainer target={controlsTarget}>

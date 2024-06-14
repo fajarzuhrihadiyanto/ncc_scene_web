@@ -7,6 +7,7 @@ import buttonStyles from './styles/Buttons.module.css'
 import useMainStore from "../store/useMainStore"
 import { FOCUS_BOOKS, FOCUS_COMMUNITY_SERVICE, FOCUS_RESEARCH, FOCUS_SUBJECT } from "../constants"
 import { useResponsiveScreen } from "../utils"
+import useDataStore from "../store/dataStore"
 
 const GeneralInformation = () => {
 
@@ -16,6 +17,7 @@ const GeneralInformation = () => {
     const setControlsTargetOffset = useMainStore.useSetControlsTargetOffset()
     const isDeskFocused = useMainStore.useIsDeskFocused()
     const setIsDeskFocused = useMainStore.useSetIsDeskFocused()
+    const labDescription = useDataStore.useLabDescription()
     const {isMobile} = useResponsiveScreen()
 
     const ref = React.useRef()
@@ -73,7 +75,7 @@ const GeneralInformation = () => {
                     className={styles.html}>
                     <div className={styles.container}>
                         <h1 className={styles.title}>Selamat Datang di halaman Laboratorium Komputasi Berbasis Jaringan.</h1>
-                        <p className={styles.description}>Di Laboratorium ini ditawarkan bidang keahlian yang ditekankan pada Kemampuan lulusan sarjana/magister/doktor dalam membangun infrastruktur jaringan yang aman, kemampuan membangun sistem grid, Kemampuan membangun aplikasi jaringan sesuai Standard dan Kemampuan membangun aplikasi multimedia berbasis jaringan.</p>
+                        <p className={styles.description}>{labDescription}</p>
                     </div>
                 </Html>
             </group>

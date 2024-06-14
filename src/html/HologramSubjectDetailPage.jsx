@@ -14,8 +14,8 @@ const HologramSubjectDetailPage = () => {
 
     return (
         <>
-            <h1 className={styles.title}>{subjectData.title}</h1>
-            <p className={styles.description}>Mata kuliah {subjectData.mandatory ? 'wajib' : 'pilihan'}</p>
+            <h1 className={styles.title}>{subjectData.name}</h1>
+            <p className={styles.description}>Mata kuliah {subjectData.is_compulsory ? 'wajib' : 'pilihan'}</p>
             <div>
                 <h2>Deskripsi Mata Kuliah</h2>
                 <p className={styles.description}>{subjectData.description}</p>
